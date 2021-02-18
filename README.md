@@ -25,14 +25,9 @@ services:
     container_name: java
     restart: always
     environment: # 默认配置
-      TIME_ZONE: "Asia/Shanghai"
-      BASE_DIR: "/data"   // 注意：修改此路径，需同步修改volumes对应路径
-      JVM_XMS: "2g"
-      JVM_XMX: "2g"
-      JVM_XMN: "1g"
-      JVM_MS: "128m"
-      JVM_MMS: "320m"
-      JVM_PLG: false # GC日志打印
+      - TIME_ZONE: "Asia/Shanghai"
+      - BASE_DIR: "/data"   # 注意：修改此路径，需同步修改volumes对应路径
+      - JAVA_OPTS: -Xms2g -Xmx2g -Xmn1g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m # JAVA启动参数
     volumes:
       - ./logs:/data/logs
       - ./config:/data/config:ro
