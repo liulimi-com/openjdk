@@ -7,6 +7,11 @@ ENV TIME_ZONE="Asia/Shanghai" \
 
 WORKDIR /$BASE_DIR
 
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
+RUN set -eux; \
+	apt-get update; \
+	apt-get -y upgrade;
+
 RUN ln -snf /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && echo $TIME_ZONE > /etc/timezone
 
 CMD java -Djava.security.egd=file:/dev/./urandom -jar $BASE_DIR/app.jar  $JAVA_OPTS --appendonly yes
