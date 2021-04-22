@@ -3,7 +3,7 @@ FROM openjdk:17-slim-buster
 # set environment
 ENV TIME_ZONE="Asia/Shanghai" \
     BASE_DIR="/data" \
-    JAVA_OPTS="-Xms2g -Xmx2g -Xmn1g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m" 
+    JAVA_OPTS="-XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=128m -Xms1024m -Xmx1024m -Xmn256m -Xss256k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC" 
 
 WORKDIR /$BASE_DIR
 
