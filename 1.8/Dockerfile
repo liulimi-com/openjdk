@@ -1,4 +1,4 @@
-FROM openjdk:8u282-slim-buster
+FROM openjdk:8u292-jdk-slim
 
 # set environment
 ENV TIME_ZONE="Asia/Shanghai" \

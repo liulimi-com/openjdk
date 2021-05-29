@@ -1,4 +1,4 @@
-FROM openjdk:17-slim-buster
+FROM openjdk:17-jdk-slim
 
 # set environment
 ENV TIME_ZONE="Asia/Shanghai" \
