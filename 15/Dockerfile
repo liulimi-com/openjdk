@@ -10,7 +10,7 @@ WORKDIR /$BASE_DIR
 RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
 	&& apt-get update && apt-get -y upgrade \
     && ln -snf /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && echo $TIME_ZONE > /etc/timezone \
-    && mkdir $BASE_DIR/config && mkdir $BASE_DIR/logs \
+    && mkdir $BASE_DIR/config && mkdir $BASE_DIR/log \
     && rm -rf /var/lib/apt/lists/*
 
 CMD java -Djava.security.egd=file:/dev/./urandom -jar $BASE_DIR/app.jar  $JAVA_OPTS --appendonly yes
