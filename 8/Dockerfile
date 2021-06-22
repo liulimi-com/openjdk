@@ -3,7 +3,7 @@ FROM openjdk:8-jdk-slim
 # set environment
 ENV TIME_ZONE="Asia/Shanghai" \
     BASE_DIR="/data" \
-    JAVA_OPTS="-XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=128m -Xms1024m -Xmx1024m -Xmn256m -Xss256k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC" 
+    JAVA_OPTS="-Xms1g -Xmx1g -Xmn512m -Xss256k -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC" 
 
 WORKDIR /$BASE_DIR
 
